@@ -1,0 +1,305 @@
+/* style.css - Light Theme */
+:root {
+    /* Core Color Palette - Light Theme with Purple/Blue Accents */
+    --primary-color: #6A00FF; /* Purple - Slightly adjusted for better contrast on light bg if needed, but #8A2BE2 was good */
+    --secondary-color: #005AEE; /* Blue - Slightly adjusted for better contrast */
+    
+    --background-main: #f4f7f9; /* Very light grey, almost white for the page background */
+    --background-card: #ffffff; /* White for the main container card */
+    --background-excuse-card: #eef2f7; /* A very light, cool grey for the excuse card, or e.g. #f0eaff for light purple */
+
+    --text-primary: #212529; /* Dark grey for primary text, good readability */
+    --text-secondary: #5a6268; /* Medium grey for subtitles and less important text */
+    --text-on-accent: #ffffff; /* White text for buttons or elements with accent backgrounds */
+
+    --button-primary-bg: var(--primary-color);
+    --button-primary-hover-bg: #5200d6; /* Darker shade of primary purple */
+    --button-primary-active-bg: #4100aa; /* Even darker for active state */
+
+    --shadow-soft: 0 4px 12px rgba(0, 0, 0, 0.08); /* Lighter shadow for light theme elements */
+    --border-radius-main: 8px;
+    --transition-speed: 0.25s;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--background-main);
+    color: var(--text-primary);
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    box-sizing: border-box;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+    background-color: var(--background-card);
+    padding: 25px 30px;
+    border-radius: var(--border-radius-main);
+    box-shadow: var(--shadow-soft);
+    text-align: center;
+    width: 100%;
+    max-width: 550px;
+    animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+header h1 {
+    font-family: 'Pacifico', cursive;
+    color: var(--primary-color);
+    font-size: 2.4em;
+    margin-bottom: 0.3em;
+}
+
+.subtitle {
+    font-size: 1em;
+    color: var(--text-secondary);
+    margin-bottom: 25px;
+}
+
+.excuse-card {
+    background-color: var(--background-excuse-card); 
+    /* The JS pastelColors might work well here if they are light pastels */
+    color: var(--text-primary); /* Text inside the excuse card */
+    padding: 25px;
+    border-radius: var(--border-radius-main);
+    margin-bottom: 25px;
+    min-height: 90px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* Using a subtle border instead of inset shadow for light theme */
+    border: 1px solid #dde4eb; 
+    transition: transform var(--transition-speed) ease, background-color var(--transition-speed) ease, border-color var(--transition-speed) ease;
+}
+
+.excuse-card:hover {
+    transform: scale(1.02);
+    border-color: #c8d3de; /* Slightly darker border on hover */
+}
+
+#excuse-text {
+    font-size: 1.25em;
+    font-weight: 500;
+    color: var(--text-primary); /* Ensure text is dark */
+    margin-bottom: 12px;
+    animation: textAppear 0.4s ease-out forwards;
+}
+
+@keyframes textAppear {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.emoji-area {
+    font-size: 2.2em;
+    margin-top: 8px;
+    animation: popIn 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55) 0.1s forwards;
+}
+
+@keyframes popIn {
+    0% { transform: scale(0.7); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+#generate-button {
+    background-color: var(--button-primary-bg);
+    color: var(--text-on-accent);
+    border: none;
+    padding: 12px 28px;
+    font-size: 1.05em;
+    font-weight: 600;
+    border-radius: var(--border-radius-main);
+    cursor: pointer;
+    transition: background-color var(--transition-speed) ease, transform var(--transition-speed) ease;
+    box-shadow: 0 2px 6px rgba(106, 0, 255, 0.25); /* Shadow from the primary color for a subtle glow */
+}
+
+#generate-button:hover {
+    background-color: var(--button-primary-hover-bg);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(106, 0, 255, 0.3);
+}
+
+#generate-button:active {
+    transform: translateY(0px);
+    background-color: var(--button-primary-active-bg);
+}
+
+.button-icon {
+    font-size: 1.3em;
+    display: inline-block;
+}
+
+footer {
+    margin-top: 35px;
+    font-size: 0.85em;
+    color: #777; /* A slightly darker grey for footer text on light bg */
+}
+
+/* Responsive Design Adjustments - Mostly remain the same, verify text contrasts */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+        margin: 15px 10px;
+    }
+
+    header h1 {
+        font-size: 2.1em;
+    }
+
+    .subtitle {
+        font-size: 0.95em;
+    }
+
+    #excuse-text {
+        font-size: 1.15em;
+    }
+
+    .emoji-area {
+        font-size: 2em;
+    }
+
+    #generate-button {
+        padding: 11px 22px;
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 15px;
+    }
+    .container {
+        padding: 20px 15px;
+        margin: 10px;
+    }
+
+    header h1 {
+        font-size: 1.9em;
+    }
+
+    .subtitle {
+        font-size: 0.85em;
+        margin-bottom: 20px;
+    }
+
+    .excuse-card {
+        padding: 20px;
+    }
+
+    #excuse-text {
+        font-size: 1.05em;
+    }
+
+    .emoji-area {
+        font-size: 1.9em;
+    }
+
+    #generate-button {
+        width: calc(100% - 16px);
+        margin-left: auto;
+        margin-right: auto;
+        padding: 12px;
+        font-size: 1em;
+    }
+}
+.actions-container {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center; 
+    gap: 15px; 
+    margin-top: 20px; 
+}
+
+/* Estilo base para botões de ação, se quiser unificar mais */
+.actions-container button {
+    padding: 12px 24px;
+    font-size: 1em;    
+    font-weight: 600;
+    border-radius: var(--border-radius-main);
+    cursor: pointer;
+    transition: background-color var(--transition-speed) ease, transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    flex-grow: 1; 
+    min-width: 180px; 
+}
+
+/* Botão Gerar Desculpa (ajustes para estar no actions-container) */
+#generate-button {
+    background-color: var(--button-primary-bg);
+    color: var(--text-on-accent);
+    box-shadow: 0 2px 6px rgba(106, 0, 255, 0.25); 
+}
+
+#generate-button:hover {
+    background-color: var(--button-primary-hover-bg);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(106, 0, 255, 0.3);
+}
+
+#generate-button:active {
+    transform: translateY(0px);
+    background-color: var(--button-primary-active-bg);
+}
+
+/* Novo Botão Copiar */
+#copy-button {
+    background-color: var(--secondary-color); 
+    color: var(--text-on-accent);
+    box-shadow: 0 2px 6px rgba(0, 90, 238, 0.25); /* Sombra da cor secundária */
+}
+
+#copy-button:hover {
+    background-color: #0048c7; /* Tom mais escuro do azul secundário */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 90, 238, 0.3);
+}
+
+#copy-button:active {
+    transform: translateY(0px);
+    background-color: #003699; 
+}
+
+/* Estilo opcional para quando o botão está no estado "Copiado!" */
+#copy-button.copied {
+    background-color: #28a745; 
+    box-shadow: 0 2px 6px rgba(40, 167, 69, 0.3);
+}
+#copy-button.copied:hover {
+    background-color: #218838; 
+}
+
+
+/* Ajustes de responsividade para o actions-container */
+@media (max-width: 480px) {
+    .actions-container {
+        flex-direction: column; 
+        gap: 10px;
+    }
+
+    .actions-container button {
+        width: 100%; 
+        min-width: unset;
+        flex-grow: 0; 
+    }
+
+    #generate-button,
+    #copy-button {
+        padding: 12px; 
+    }
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Desculpas Malucas</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Gerador de Desculpas</h1>
+            <p class="subtitle">Para aqueles dias em que a criatividade para faltar some...</p>
+        </header>
+
+        <main>
+            <div class="excuse-card">
+                <p id="excuse-text">Clique no botão abaixo para gerar sua desculpa!</p>
+                <div class="emoji-area" id="emoji-area"></div>
+            </div>
+            <div class="actions-container">
+                <button id="generate-button" aria-label="Gerar nova desculpa">
+                    <span class="button-icon">🤪</span> Gerar Desculpa!
+                </button>
+                <button id="copy-button" aria-label="Copiar desculpa para a área de transferência">
+                    <span class="button-icon">📋</span> Copiar
+                </button>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; <span id="current-year"></span> Seu Chefe Não Vai Acreditar Nisso Inc.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
